@@ -1,0 +1,6 @@
+@use './mixins/index' as mixins;
+@use './base/index' as base;
+@use './globals/index' as globals;
+@use './components/pricing/index' as pricing;
+@use './components/header' as header;
+@use './components/footer' as footer;

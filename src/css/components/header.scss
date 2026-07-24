@@ -1,0 +1,207 @@
+@use "../mixins/index" as mixins;
+@use "../base/index" as base;
+
+.header {
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 26px 0 22px;
+  z-index: 3;
+
+  @include mixins.mobile {
+    padding: 22px 0 18px;
+  }
+
+  &__container {
+    @include mixins.flex-center-beetween;
+  }
+
+  &__logo {
+    @include mixins.small-tablet {
+      z-index: 4;
+    }
+    & svg {
+      @include mixins.mobile {
+        width: 120px;
+        height: auto;
+      }
+      & path {
+        &:not(:last-child) {
+          fill: var(--logo-color-txt);
+        }
+      }
+
+      & circle {
+        fill: var(--logo-color-circle);
+      }
+    }
+  }
+
+  &__right {
+    @include mixins.flex-align-center;
+    gap: 111px;
+
+    @include mixins.tablet {
+      gap: 60px;
+    }
+
+    @include mixins.small-tablet {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 80dvw;
+      height: 100dvh;
+      flex-direction: column;
+      gap: 18%;
+      justify-content: center;
+      background-color: var(--neutral-color-10);
+      transform: translateX(-100%);
+      transition: var(--transition);
+      z-index: 3;
+      background-color: var(--neutral-color-10);
+      padding: 20px var(--container-padding);
+
+      &.header__right--active {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__switcher {
+    border-radius: 13px;
+    width: 63px;
+    height: 27px;
+    background-color: var(--neutral-color-130);
+    border: 1px solid #b2b4ba;
+    position: relative;
+    top: 10px;
+    transform: translateY(8px);
+    cursor: pointer;
+    transition: var(--transition);
+
+    &-text {
+      position: absolute;
+      top: -32px;
+      left: 50%;
+      transform: translate(-50%);
+      color: var(--neutral-color-100);
+      font-size: clamp(20px, 2.5vw, 24px);
+      font-weight: 500;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background-color: var(--neutral-color-140);
+      position: absolute;
+      top: 1.47px;
+      left: 3px;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
+
+    &-checkbox {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &:has(.header__switcher-checkbox:checked) {
+      background-color: var(--neutral-color-60);
+      &::before {
+        transform: translateX(34px);
+        background-color: var(--primary-color-50);
+      }
+    }
+  }
+
+  .nav {
+    /* @include mixins.small-tablet {
+      display: none;
+    } */
+
+    &__list {
+      @include mixins.flex-align-center;
+      gap: 32px;
+      color: var(--neutral-color-100);
+
+      @include mixins.small-tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 35px;
+      }
+    }
+
+    &__item {
+      @include mixins.small-tablet {
+        line-height: 200%;
+      }
+    }
+
+    &__link {
+      position: relative;
+      text-decoration: none;
+      color: var(--neutral-color-100);
+      font-weight: 500;
+      transition: color 0.25s ease-in-out;
+
+      @include mixins.tablet {
+        font-size: 20px;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 125%;
+        height: 2px;
+        border-radius: 10px;
+        background-color: var(--neutral-color-100);
+        transition: all 0.25s ease-in-out;
+        transform-origin: left;
+        transform: scaleX(0);
+        position: absolute;
+        left: -7.5%;
+        bottom: -5px;
+      }
+
+      &:hover {
+        color: #ff9900;
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+
+      &--active {
+        color: #ff9900;
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000086;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: 2;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.burger {
+  @include mixins.burger;
+}

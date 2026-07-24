@@ -1,0 +1,113 @@
+@use "../../mixins/_index" as *;
+@use "../../base/_index" as *;
+@use "../../mixins/_index" as *;
+@use "../../globals/_index" as *;
+
+
+.hero {
+  padding: 90px 0 84px;
+
+  @include mobile {
+    padding: 62px 0 60px;
+  }
+
+  @include small-mobile {
+    padding: 40px 0 45px;
+  }
+
+  &__title {
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -3px;
+    color: var(--neutral-color-100);
+    margin-bottom: 24px;
+    max-width: 986px;
+
+    margin-bottom: 100px;
+
+    @include tablet {
+      margin-bottom: 80px;
+    }
+
+    @include mobile {
+      text-align: center;
+      margin-bottom: 47px;
+    }
+  }
+
+  &__body {
+    display: flex;
+    gap: 86px;
+    justify-content: space-between;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 60px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 176px;
+
+    @include tablet {
+      flex-direction: row;
+      max-width: 100%;
+    }
+
+    @include small-tablet {
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+    }
+
+    &-item {
+      min-height: 107px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--neutral-color-50);
+
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+
+      @include tablet {
+        padding-bottom: 5px;
+      }
+
+      @include small-tablet {
+        max-width: 270px;
+        text-align: center;
+      }
+
+      &-title {
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--neutral-color-100);
+        margin-bottom: 8px;
+      }
+
+      &-subtitle {
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: 0px;
+        color: var(--neutral-color-160);
+        margin-bottom: 20px;
+
+        @include tablet {
+          margin-bottom: 10px;
+        }
+      }
+
+      &-link {
+        font-weight: 500;
+        line-height: 1.6;
+        letter-spacing: 0px;
+        color: var(--neutral-color-100);
+      }
+    }
+  }
+}

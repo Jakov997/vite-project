@@ -1,0 +1,12 @@
+@use './mixins/index' as mixins;
+@use './base/index' as base;
+@use './globals/index' as globals;
+@use './components/home/index' as home;
+@use './components/header' as header;
+@use './components/footer' as footer;
+
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}

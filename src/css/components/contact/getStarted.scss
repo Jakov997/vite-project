@@ -1,0 +1,209 @@
+@use "../../mixins/index.scss" as *;
+
+.body {
+  overflow-x: hidden;
+}
+
+.iti__country-list {
+  color: var(--neutral-color-160);
+}
+
+.get-started {
+  height: 1000px;
+  margin-bottom: 100px;
+
+  @include small-mobile {
+    height: auto;
+    margin-bottom: 64px;
+  }
+
+  @include tablet {
+    margin-inline: var(--container-padding);
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 1440px;
+    margin-inline: auto;
+    width: 100%;
+
+
+    @include small-tablet {
+      justify-content: center;
+    }
+  }
+
+  &__form {
+    position: absolute;
+    left: 5%;
+    max-height: 784px;
+    z-index: 2;
+    padding: 56px 48px;
+    border: 1px solid #9c8f8f;
+    max-width: 608px;
+    background: #fff;
+
+    @include tablet {
+      left: var(--container-padding);
+    }
+    
+    @include small-tablet {
+      position: inherit;
+      height: 100%;
+      max-height: 1200px;
+    }
+
+    @include small-mobile {
+      width: 100%;
+      max-width: none;
+      max-height: none;
+      padding: 24px 16px;
+    }
+
+
+
+    &-title {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -2%;
+      color: #1d1e25;
+      margin-bottom: 20px;
+    }
+
+    &-descr {
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0%;
+      color: var(--neutral-color-160);
+      margin-bottom: 48px;
+
+      &-link {
+        color: var(--btn-color-blue);
+      }
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &-upper {
+      display: flex;
+
+      gap: 32px;
+
+      @media (max-width: 586px) {
+        flex-wrap: wrap;
+      }
+
+      @include small-mobile {
+        gap: 16px;
+      }
+
+      @include small-mobile {
+        gap: 20px 0px;
+        
+      }
+    }
+
+    &-name {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 240px;
+
+      @media (max-width: 586px) {
+        width: 100%;
+      }
+
+      @include small-mobile {
+        min-width: 100%;
+      }
+    }
+
+    &-label {
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: 0%;
+      color: #1d1e25;
+    }
+
+    &-input {
+      padding: 10px 14px;
+      border: 1px solid #b4adad;
+      border-radius: 8px;
+      min-height: 44px;
+
+      &:focus {
+        border-color: #2d2d2e;
+        box-shadow: 0px 0px 7px 10px rgba(0, 0, 0, 0.05);
+      }
+    }
+
+    &-textarea {
+      resize: none;
+      height: 134px;
+    }
+
+    &-button {
+      font-weight: 700;
+      line-height: 1.5;
+      letter-spacing: 0px;
+      text-align: center;
+      color: #fff;
+      background: #1d1e25;
+      width: 167px;
+      height: 56px;
+      border-radius: 100px;
+
+      @include small-mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  @include small-mobile {
+    .iti {
+      width: 100%;
+    }
+  }
+
+  &__image {
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 0;
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  .button {
+  }
+  .button--primary {
+  }
+  .get-started__image {
+  }
+
+  @media (max-width: 399px) {
+    .get-started__form-name {
+      min-width: 0;
+    }
+
+    .iti,
+    .iti__tel-input,
+    #phone {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .iti__tel-input:focus,
+    #phone:focus {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    }
+  }
+}

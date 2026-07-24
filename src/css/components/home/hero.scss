@@ -1,0 +1,224 @@
+@use "../../mixins/index" as *;
+
+.container {
+}
+
+.hero {
+    padding-bottom: 141px;
+  &__container {
+    @include flex-justify-beetween;
+    align-items: flex-end;
+    position: relative;
+    flex-wrap: wrap;
+    @include medium-desktop {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__left {
+    max-width: 595px;
+    width: 95%;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: clamp(37px, 6vw, 80px);
+    line-height: 120%;
+    letter-spacing: -0.04em;
+    color: var(--neutral-color-100);
+    margin-top: clamp(40px, 10vw, 87px);
+    margin-bottom: clamp(45px, 10vw, 114px);
+  }
+
+  &__subtitle {
+    margin-bottom: 69px;
+  }
+
+  &__form {
+    @include flex-align-center;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @include medium-desktop {
+      justify-content: center;
+      text-align: center;
+    }
+  }
+
+  &__input {
+    border-bottom: 1px solid var(--neutral-color-40);
+    padding-bottom: 15px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--neutral-color-100);
+    background: transparent;
+    max-width: 280px;
+    width: 100%;
+    @media (width <= 500px) {
+        text-align: center;
+        padding-bottom: 12px;
+    }
+  }
+
+  &__btn {
+    background: var(--neutral-color-100);
+    padding: 16px 44px;
+    color: var(--neutral-color-10);
+    @include small-tablet {
+      padding: 12px 32px;
+    }
+  }
+
+  &__right {
+    position: relative;
+    width: 100%;
+    max-width: 555px;
+    display: flex;
+    flex-direction: column;
+    max-width: 418px;
+    justify-content: flex-end;
+    gap: 29px;
+    margin-top: 75px;
+    margin-right: 20px;
+  }
+
+  &__sales {
+    padding: 20px;
+    @media (width >=1200px) and (width <1440px) {
+      max-width: 320px;
+    }
+
+    &-img {
+      @include small-desktop {
+        max-width: 280px;
+      }
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 150%;
+      color: var(--neutral-color-100);
+      letter-spacing: -0.03em;
+      color: #1d1e25;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__customer {
+    display: inline-block;
+    
+    top: -50px;
+    right: -131px;
+    padding: 15px 18px;
+
+    @media (width > 1200px) {
+        position: absolute;
+    }
+
+    @include small-desktop {
+      top: -140px;
+      right: -30px;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 150%;
+      color: var(--neutral-color-100);
+      letter-spacing: -0.03em;
+      color: #1d1e25;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__sales,
+  &__customer {
+    box-shadow: 20px 40px 80px 0 #5960871f;
+    background: #fff;
+    transform: rotate(-0deg);
+    border-radius: 8px;
+  }
+
+  &__statics {
+    background-color: #1d1e25;
+    max-width: 418px;
+    width: 100%;
+    padding: 20px 28px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 20px 40px 80px 0px #2d33511f;
+
+    th:first-child {
+      padding-right: 45px;
+    }
+
+    &-title {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+      color: #5c616f;
+      letter-spacing: -0.03em;
+      margin-bottom: 4px;
+    }
+
+    &-price {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 130%;
+      color: #fff;
+      letter-spacing: 0;
+      margin-bottom: 7px;
+    }
+
+    &-down {
+      span {
+        &:first-child {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 140%;
+          letter-spacing: 0px;
+          &.green {
+            color: #60d39c;
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              background: url(../../../../public/svg/up.svg);
+              background-position: center center;
+              background-repeat: no-repeat;
+              margin-right: 6px;
+            }
+          }
+
+          &.red {
+            color: #e35454;
+            &::before {
+              content: "";
+              display: inline-block;
+              width: 12px;
+              height: 12px;
+              background: url(../../../../public/svg/down.svg);
+              background-position: center bottom;
+              background-repeat: no-repeat;
+              margin-right: 6px;
+            }
+          }
+        }
+
+        &:last-child {
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 140%;
+          letter-spacing: 0px;
+          color: #5c616e;
+          margin-left: 7.85px;
+        }
+      }
+    }
+  }
+}

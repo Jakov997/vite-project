@@ -1,0 +1,124 @@
+@use "../../mixins/media-query.scss" as *;
+@use "../../mixins/flex.scss" as *;
+
+.faq {
+  padding: 82px 0 160px;
+
+  &__container {
+    max-width: 1118px;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 80px;
+
+    @include small-tablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -2px;
+    color: var(--neutral-color-100);
+    margin-bottom: 24px;
+
+    @include mobile {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__descr {
+    font-weight: 500;
+    letter-spacing: 0px;
+    margin-bottom: 40px;
+    color: var(--neutral-color-160);
+    text-align: center;
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__accordion {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--neutral-color-80);
+    padding-bottom: 32px;
+
+    @include mobile {
+      padding-bottom: 15px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 56px;
+
+      @include mobile {
+        margin-bottom: 42px;
+      }
+    }
+
+    &-control {
+      list-style: none;
+      cursor: pointer;
+      @include flex-center-beetween;
+      @include small-tablet {
+        align-items: flex-start;
+      }
+      gap: 45px;
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    &[open] .faq__accordion-icon::before {
+      transform: translate(-50%, -50%) rotate(180deg);
+      transition: all 0.3s ease;
+    }
+
+    &-title {
+      display: inline-block;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--neutral-color-100);
+      cursor: pointer;
+    }
+
+    &-icon {
+      position: relative;
+      top: 14px;
+      right: 15px;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 18px;
+        height: 3px;
+        border-radius: 4px;
+        background-color: var(--neutral-color-100);
+        transform: translate(-50%, -50%);
+      }
+
+      &::before {
+        transform: translate(-50%, -50%) rotate(90deg);
+        transition: all 0.3s ease;
+      }
+
+      &::after {
+      }
+    }
+
+    &-txt {
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--neutral-color-160);
+      max-width: 641px;
+      margin-top: 16px;
+    }
+  }
+}

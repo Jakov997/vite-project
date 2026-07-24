@@ -1,0 +1,225 @@
+@use  "../../mixins/index" as *;
+
+.features {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 58px;
+    padding-top: 160px;
+    padding-bottom: 94px;
+    @media (width <= 1160px) {
+      flex-direction: column;
+      padding-top: 100px;
+      padding-bottom: 60px;
+    }
+
+    
+  }
+
+  &__left {
+    flex: 1;
+    position: relative;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 35px;
+      
+    }
+  }
+
+  &__img {
+    @include mobile {
+      border-radius: 8px;
+    }
+  }
+
+  &__stats {
+    max-width: 290px;
+    width: 100%;
+    padding: 18px;
+    background: #fff;
+    
+    right: 36px;
+    bottom: 40px;
+
+    @include mobile {
+      border-radius: 8px;
+    }
+
+    @media (width > 576px) and (width <= 1160px ) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (width > 576px) {
+      position: absolute;
+    }
+
+    @include mobile {
+      
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--neutral-color-160);
+      line-height: 1.5;
+      color: #1d1e25;
+    }
+
+    &-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    &-body {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 25px;
+
+      &:nth-child(2) {
+        padding-bottom: 11.5px;
+        border-bottom: 1px solid #ededed;
+      }
+
+      &:nth-child(3) {
+        padding-top: 11.5px;
+      }
+    }
+
+    &-item {
+      &-title {
+        font-size: 10px;
+        font-weight: 500;
+        color: var(--neutral-color-160);
+        line-height: 1.5;
+        margin-bottom: 6px;
+      }
+
+      &-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 4px;
+        margin-bottom: 8.74px;
+
+        &-num {
+          font-size: 24px;
+          font-weight: 700;
+          color: #1d1e25;
+          line-height: 1.2;
+        }
+
+        &-persent {
+          font-size: 10px;
+          font-weight: 500;
+          color: #1d1e25;
+          line-height: 150%;
+          display: flex;
+          align-items: center;
+
+          &.up {
+            &::before {
+              content: url("/svg/arrow_up.png");
+              display: inline-block;
+              width: 14px;
+              height: 17px;
+            }
+          }
+
+          &.down {
+            &::before {
+              content: url("/svg/arrow_down.png");
+              display: inline-block;
+              width: 18px;
+              height: 21px;
+            }
+          }
+        }
+      }
+
+      &-descript {
+        font-size: 9px;
+        font-weight: 400;
+        line-height: 1;
+        color: var(--neutral-color-160);
+
+        span {
+          font-weight: 700;
+          font-style: bold;
+        }
+      }
+    }
+  }
+
+  &__img {
+  }
+  &__right {
+    flex: 1;
+    @media (width <= 1160px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    line-height: 120%;
+    color: var(--neutral-color-100);
+    max-width: 557px;
+    width: 95%;
+    margin-bottom: 24px;
+    @media (width <= 1160px) {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    max-width: 360px;
+    width: 95%;
+    color: var(--neutral-color-160);
+    @media (width <= 1160px) {
+      text-align: center;
+    }
+
+    @include small-tablet {
+      max-width: 550px;
+    }
+  }
+
+  &__list {
+    max-width: 393px;
+    width: 95%;
+    margin-top: 40px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 40px;
+    color: var(--neutral-color-100);
+    &::before {
+      content: url("/svg/check_mark.svg");
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      left: 0;
+      position: absolute;
+    }
+    margin-bottom: 16px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.7;
+    letter-spacing: 0px;
+  }
+}

@@ -1,0 +1,9 @@
+@use './mixins/index' as mixins;
+@use './base/index' as base;
+
+
+@use './components/header' as header;
+
+@use './components/about/index' as contact;
+
+@use './components/footer' as footer;

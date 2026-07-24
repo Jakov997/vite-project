@@ -1,0 +1,54 @@
+@use '../mixins/media-query.scss' as *;
+
+
+.hero-decor {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    border-radius: 50%;
+    width: 551px;
+    height: 551px;
+    opacity: 0.25;
+    position: absolute;
+    z-index: -1;
+    @include medium-desktop {
+      width: 351px;
+      height: 351px;
+    }
+    @include small-tablet {
+      width: 251px;
+      height: 251px;
+    }
+  }
+
+  &::before {
+    filter: blur(220px);
+    opacity: 0.45;
+    background: #fa7515;
+    top: 206px;
+    left: 181px;
+    @include medium-desktop {
+      top: 87px;
+      left: 121px;
+    }
+    @include small-tablet {
+        top: 50px;
+        left: 5px;
+    }
+
+  }
+
+  &::after {
+    filter: blur(180px);
+    opacity: 0.25;
+    background: #e2f8f0b5;
+    right: 0;
+    top: 470px;
+    @include small-tablet {
+      top: 255px;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+html {
+    box-sizing: border-box;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--neutral-color-10);
+    color: var(--neutral-color-100);
+
+    &--fixed {
+        overflow-y: hidden;
+    }
+
+    
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+h1,
+h2, 
+h3, 
+h4, 
+h5, 
+h6,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    outline: none;
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+.container {
+    max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+    width: 100%;
+    padding: 0 var(--container-padding);
+    margin: 0 auto;
+}
+
+.hidden {
+    font-size: 0;
+    opacity: 0;
+    visibility: hidden;
+}
