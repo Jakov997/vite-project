@@ -6,6 +6,7 @@ import { ViteMinifyPlugin } from "vite-plugin-minify";
 export default defineConfig({
   root: "src",
   publicDir: "../public",
+  base: "/vite-project/",
   server: {
     port: 3200,
     open: true,
